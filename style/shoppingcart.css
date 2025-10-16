@@ -1,0 +1,132 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Noto Sans KR', sans-serif;
+    background: url('background.png') no-repeat center center/cover;
+}
+
+/* (수정) body는 헤더와 main을 수직으로 쌓는 역할만 하도록 변경 */
+body {
+    display: flex;
+    flex-direction: column; /* 자식 요소(header, main)를 위아래로 쌓음 */
+}
+
+/* (추가) main 영역이 남은 공간을 모두 차지하고, 내부 콘텐츠를 중앙 정렬하도록 설정 */
+main {
+    flex: 1; /* 헤더를 제외한 모든 남은 공간을 차지 */
+    display: flex;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    padding: 20px; /* 콘텐츠 주변에 여백 추가 */
+}
+
+.top-bar {
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    /* width, z-index, box-sizing 등은 body가 flex가 되면서 불필요해져 제거 가능 */
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.logo h1 {
+    font-weight: bold;
+    font-size: 20px;
+    color: #2E8B57;
+    margin: 0;
+}
+
+/* --- 여기서부터 아래 코드는 수정할 필요 없이 그대로 사용하시면 됩니다 --- */
+
+/* 컨테이너 */
+.product-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    display: flex;
+    gap: 50px;
+    max-width: 900px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 왼쪽 이미지 */
+.product-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-image img {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+/* 오른쪽 정보 */
+.product-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-info h2 {
+    margin: 0;
+    font-size: 28px;
+    color: #444;
+}
+
+.product-info p.price {
+    margin: 5px 0 20px;
+    font-size: 22px;
+    color: #888;
+    font-style: italic;
+}
+
+.product-description {
+    background-color: #fff;
+    border: 1px solid #4CAF50;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* 버튼 스타일 */
+.buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.buttons button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.buttons button:hover {
+    background-color: #45a049;
+}

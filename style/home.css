@@ -1,0 +1,100 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Noto Sans KR', sans-serif;
+    /* (추가) body를 flex 컨테이너로 만들어 헤더와 메인을 수직 배치 */
+    display: flex;
+    flex-direction: column;
+}
+
+/* (수정) main-content 영역에 배경 이미지를 직접 적용합니다. */
+.main-content {
+    background-image: url('/img/bg.jpg'); /* 이미지 경로 */
+    background-size: cover;
+    background-position: center;
+    
+    /* (추가) 헤더를 제외한 나머지 공간을 모두 차지하도록 설정 */
+    flex: 1;
+    
+    /* (추가) 검색창을 중앙에 배치하기 위한 설정 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* (수정) 상단 네비게이션: .navbar-custom -> .top-bar */
+.top-bar {
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-sizing: border-box; /* 패딩이 너비에 포함되도록 설정 */
+}
+
+/* (수정) .navbar-custom a -> .main-nav a */
+.main-nav a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+/* (수정) .navbar-custom .logo -> .logo h1 */
+.logo h1 {
+    font-weight: bold;
+    font-size: 20px;
+    color: #2E8B57;
+    margin: 0;
+}
+
+/* (수정) 검색창: .search-box -> .search-container */
+.search-container {
+    max-width: 500px;
+    width: 80%;
+    position: relative; /* 돋보기 아이콘을 위한 기준점 */
+}
+
+/* (수정) .search-box input -> .search-input */
+.search-input {
+    width: 100%;
+    padding: 10px 15px 10px 40px; /* 아이콘 자리를 위해 왼쪽 패딩 추가 */
+    border-radius: 25px;
+    border: 2px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box; /* 패딩이 너비에 포함되도록 설정 */
+}
+
+/* 돋보기 아이콘 스타일 추가 */
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    pointer-events: none; /* 아이콘이 클릭되지 않도록 설정 */
+}
+
+
+@media (max-width: 768px) {
+    /* (수정) .navbar-custom -> .top-bar */
+    .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-nav a {
+        margin: 5px 0 0 0;
+    }
+}
